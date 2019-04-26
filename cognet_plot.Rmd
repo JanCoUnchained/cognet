@@ -114,6 +114,19 @@ ggraph(net_3_clique, layout = 'graphopt') +
 
 ```
 
+```{r}
+ggraph(net_3, layout = 'graphopt') + 
+  geom_edge_link(aes(
+    start_cap = circle(3, 'mm'),
+    end_cap = circle(3, 'mm'),
+    width = weight),
+    alpha = 0.7) + 
+  scale_edge_width(range = c(0.2, 2)) +
+  geom_node_label(aes(label = label, size = eigen_centrality(net_3)$vector), repel = F) +
+  labs(edge_width = "n connections", size = "eigen centrality") +
+  theme_graph()
+```
+
 
 # STUDY GROUPS (by semester)
 ## Plot
