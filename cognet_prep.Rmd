@@ -53,10 +53,11 @@ nodes <- a %>%
   # keep unique names
   filter(!duplicated(label)) %>%
   filter(!is.na(label)) %>%
-  # rownames (for joining dataframes)
-  rownames_to_column("id") %>%
   # sort names alphabetically
-  arrange(label)
+  arrange(label) %>%
+  # rownames (for joining dataframes)
+  rownames_to_column("id")
+
   
 ```
 
